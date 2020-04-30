@@ -5,9 +5,6 @@ var exphbs = require("express-handlebars");
 
 const PORT = process.env.PORT || 3000;
 
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
-
 const app = express();
 
 app.use(logger("dev"));
@@ -15,12 +12,23 @@ app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+
+const Handlebars = require('handlebars')
+const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
+app.engine('handlebars', exphbs({ 
+    handlebars: allowInsecurePrototypeAccess(Handlebars),
+    defaultLayout: 'main' 
+}));
+app.set('view engine', 'handlebars');
+
 app.use(express.static("public"));
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/populatedb", { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workoutdb", { useNewUrlParser: true });
 
 const htmlRoutes = require("./controllers/htmlController");
+const workoutRoutes = require("./controllers/workoutController");
 
+app.use("/api/workout",workoutRoutes);
 app.use(htmlRoutes);
 
 app.listen(PORT, () => {

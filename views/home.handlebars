@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
-            <button type="button" class="btn btn-danger">Add A Workout</button>
+            <button type="button" class="btn btn-danger" id="add-workout">Add A Workout</button>
         </div>
     </div>
     <div class="row">
@@ -14,9 +14,11 @@
     </div>
     <div class="row">
         <div id="most-recent" class="col-sm-6">
-            <h5>{{latest.name}}</h5>
+            <h5>{{this.latest.name}}</h5>
             <p>{{latest.date}}</p>
+            {{#if latest}}
             <button type="button" class="see-exercises btn btn-danger" id="{{latest._id}}">See Exercizes</button>
+            {{/if}}
         </div>
         <div id="previous" class="col-sm-6">
             {{#each previous}}
