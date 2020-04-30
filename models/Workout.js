@@ -11,10 +11,10 @@ const WorkoutSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    workouts: [
+    exercises: [
         {
             type: Schema.Types.ObjectId, 
-            ref: "Workout"
+            ref: "Exercise"
         }
     ]
 })

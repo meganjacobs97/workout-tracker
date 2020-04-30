@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <button type="button" class="btn btn-danger">Add A Workout</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>Most Recent Workout</h3>
+        </div>
+        <div class="col-sm-6">
+            <h3>Previous Workouts</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div id="most-recent" class="col-sm-6">
+            <h5>{{latest.name}}</h5>
+            <p>{{latest.date}}</p>
+            <button type="button" class="see-exercises btn btn-danger" id="{{latest._id}}">See Exercizes</button>
+        </div>
+        <div id="previous" class="col-sm-6">
+            {{#each previous}}
+                <h5>{{name}}</h5>
+                <p>{{date}}</p>
+                <button type="button" class="see-exercises btn btn-danger" id="{{_id}}">See Exercizes</button>
+            {{/each}}
+        </div>
+    </div>
+</div>

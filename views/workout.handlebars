@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>{{name}}</h3>
+            <h3>{{date}}</h3>
+            {{#each exercises}}
+                <h5>{{name}}</h5>
+                {{#if type}}
+                <p>Type: {{type}}</p>
+                {{/if}}
+
+                {{#if weight}}
+                <p>Weight: {{weight}}</p>
+                {{/if}}
+
+                {{#if sets}}
+                <p>Sets: {{sets}}</p>
+                {{/if}}
+
+                {{#if reps}}
+                <p>Reps: {{reps}}</p>
+                {{/if}}
+
+                {{#if duration}}
+                <p>Duration: {{duration}}</p>
+                {{/if}}
+
+                {{#if distance}}
+                <p>Distance: {{distance}}</p>
+                {{/if}}
+            {{/each}}
+        </div>
+    </div>
+</div>
